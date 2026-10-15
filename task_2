@@ -1,0 +1,8 @@
+for year in [1900, 2000, 2024, 2026] {
+    print(year, (year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+}
+let n = 57
+print((1...100).contains(n))
+print(n % 2 == 0 && n % 10 != 0)
+let nickname: String? = nil
+print(nickname ?? "Guest")
