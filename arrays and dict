@@ -1,0 +1,41 @@
+task_1
+var subjects = ["Swift", "UIKit", "SwiftUI"]
+subjects.append("Networking")
+subjects.insert("Testing", at: 1)
+subjects.removeAll { $0 == "UIKit" }
+print(subjects.sorted())
+var registered: Set<String> = ["Anu", "Ben"]
+registered.insert("Anu")
+print(registered.count)
+var marks = ["Anu": 85, "Ben": 72, "Chitra": 90]
+marks["Dev"] = 68
+marks["Ben"] = 78
+print(marks["Esha"] as Any)
+for name in marks.keys.sorted() {
+    print("\(name): \(marks[name]!)")
+}
+if let top = marks.max(by: { $0.value < $1.value }) {
+    print(top.key, top.value)
+}
+
+task_2
+let sentence = "swift is fun and swift is fast"
+let words = sentence.split(separator: " ").map(String.init)
+print(words.count)
+print(Set(words).sorted())
+var freq: [String: Int] = [:]
+for w in words { freq[w, default: 0] += 1 }
+print(freq)
+let ranked = freq.sorted { $0.value != $1.value ? $0.value > $1.value : $0.key < $1.key }
+for (word, count) in ranked { print("\(word): \(count)") }
+
+task_3
+let swiftClub: Set = ["Anu", "Ben", "Chitra", "Dev"]
+let uiClub: Set = ["Chitra", "Dev", "Esha"]
+print(swiftClub.intersection(uiClub).sorted())
+print(swiftClub.subtracting(uiClub).sorted())
+print(swiftClub.union(uiClub).sorted())
+print(swiftClub.symmetricDifference(uiClub).sorted())
+var seen = Set<Int>()
+let unique = [3, 1, 3, 2, 1, 4].filter { seen.insert($0).inserted }
+print(unique)
